@@ -17,8 +17,9 @@ run(function () {
         x$("#connection_status").html(newStatus);
       }
     });
+alert("step 1");
     lsClient.connect();
-
+alert("step 2");
     var grid = new DynaGrid("stocks",true);
     grid.setSort("stock_name");
     grid.addListener({
@@ -32,7 +33,7 @@ run(function () {
         info.setAttribute("white", "black", "color");
       }
     });
-    
+alert("step 3");    
     var sub = new Subscription("MERGE",["item3","item4","item5","item6","item7"],grid.extractFieldList()); 
     sub.addListener(grid);
     sub.setDataAdapter("QUOTE_ADAPTER");
@@ -40,7 +41,7 @@ run(function () {
 
     lsClient.subscribe(sub);
     
-    
+alert("step 4");    
     // a little inline controller
     when('welcome');
     when('sld');
@@ -84,4 +85,6 @@ run(function () {
         });
         display('#welcome');
     });
+
+alert("step 5");
 });
