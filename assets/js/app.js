@@ -4,14 +4,14 @@
 run(function () {
     // immediately invoked on first run
 alert("step 0");    
-   if (navigator.network.connection.type == Connection.NONE) {
+/*   if (navigator.network.connection.type == Connection.NONE) {
         alert("No internet connection - we won't be able to show you any maps or stocks");
     } else {
         alert("We can reach the Interwebz - get ready for some awesome maps and real-time goodness!");
     }
-   
+*/   
 alert("step 0b");
-/*    
+   
     var lsClient = new LightstreamerClient("http://push.lightstreamer.com","DEMO");
 alert("step 0c");
     lsClient.addListener({
@@ -44,7 +44,7 @@ alert("step 3");
     lsClient.subscribe(sub);
     
 alert("step 4");    
-*/
+
     // a little inline controller
     when('welcome');
     when('sld');
