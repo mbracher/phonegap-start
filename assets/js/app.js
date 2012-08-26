@@ -3,7 +3,7 @@
 //
 run(function () {
     // immediately invoked on first run
-    
+alert("step 0");    
    if (navigator.network.connection.type == Connection.NONE) {
         alert("No internet connection - we won't be able to show you any maps or stocks");
     } else {
@@ -12,6 +12,7 @@ run(function () {
     
     
     var lsClient = new LightstreamerClient("http://push.lightstreamer.com","DEMO");
+alert("step 0b");
     lsClient.addListener({
       onStatusChange: function(newStatus) {
         x$("#connection_status").html(newStatus);
