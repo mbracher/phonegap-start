@@ -402,3 +402,4 @@ if(d.length>0||this.pKF.length==this.wSd&&this.wSd>0){d.appendChild(a,b);return 
 e,this.wSd*(this.Qlc-1))&&this.pZ(e,f,this.wSd);else if(d==f){c==g&&this.nw(e,g,this.wSd*(this.Qlc-1),false);this.nw(f,e,this.wSd,false)}}},nw:function(a,b,c,d){if(this.wSd<=0)return false;if(b.length<c&&a.length>0){a=a.ij(0);b.appendChild(a,!d);return true}return false},pZ:function(a,b,c){if(this.wSd<=0)return false;if(a.length>c){a=a.ij(a.length-1);b.insertBefore(a,b.ij(0));return true}return false},wA:function(){for(;this.wSd>0&&this.MHJ>this.wSd;)this.removeRow(this.aE())},addListener:function(a){this.qO(o,
 "addListener",a)},removeListener:function(a){this.qO(o,"removeListener",a)},getListeners:function(){return this.qO(o,"getListeners")}};f(o,e);return o});
 var classes =['LightstreamerClient','Subscription','DynaGrid'];require(classes,function(){for (var i=0;i<classes.length;i++)window[classes[i]]=arguments[i];});})();
+
