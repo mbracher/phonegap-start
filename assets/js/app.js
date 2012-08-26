@@ -85,17 +85,4 @@ run(function () {
     });
 });
 
-var grid = new DynaGrid("stocks",true);
-grid.setSort("stock_name");
-grid.addListener({
-  onVisualUpdate: function(key,info) {
-    if (info == null) {
-      return; //cleaning
-    }     
-    info.setHotTime(500);
-    info.setHotToColdTime(300);
-    info.setAttribute("#F7941E", "transparent", "backgroundColor");
-    info.setAttribute("white", "black", "color");
-  }
-});
 
