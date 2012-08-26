@@ -10,9 +10,10 @@ alert("step 0");
         alert("We can reach the Interwebz - get ready for some awesome maps and real-time goodness!");
     }
    
-    
-    var lsClient = new LightstreamerClient("http://push.lightstreamer.com","DEMO");
 alert("step 0b");
+/*    
+    var lsClient = new LightstreamerClient("http://push.lightstreamer.com","DEMO");
+alert("step 0c");
     lsClient.addListener({
       onStatusChange: function(newStatus) {
         x$("#connection_status").html(newStatus);
@@ -43,6 +44,7 @@ alert("step 3");
     lsClient.subscribe(sub);
     
 alert("step 4");    
+*/
     // a little inline controller
     when('welcome');
     when('sld');
