@@ -7,7 +7,8 @@ var run = function(application) {
     } else {
 				alert("step not blb"); 
         // attach to deviceready event, which is fired when phonegap is all good to go.
-        x$(document).on('deviceready', application, false);
+setTimeout(application, 250);
+        //x$(document).on('deviceready', application, false);
     }
 }
 
