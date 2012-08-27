@@ -4,9 +4,9 @@
 run(function () {
     // immediately invoked on first run
 
-/*   if (navigator.network.connection.type == Connection.NONE) {
+   if (navigator.network.connection.type == Connection.NONE) {
         alert("No internet connection - we won't be able to show you any maps or stocks");
-    }*/ /*else {
+    } /*else {
             alert("We can reach the Interwebz - get ready for some awesome maps and real-time goodness!");
         }*/
   
