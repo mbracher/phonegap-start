@@ -2,7 +2,7 @@
 var run = function(application) {
 	
 	var init = function(){
-	
+			alert('init');
 	    if (navigator.userAgent.indexOf('Browzr') > -1) {
 	        // blackberry
 	        setTimeout(application, 250);
