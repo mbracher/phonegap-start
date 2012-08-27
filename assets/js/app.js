@@ -3,14 +3,15 @@
 //
 run(function () {
     // immediately invoked on first run
-   if (navigator.network.connection.type == Connection.NONE) {
+
+/*   if (navigator.network.connection.type == Connection.NONE) {
         alert("No internet connection - we won't be able to show you any maps or stocks");
-    } else {
-        alert("We can reach the Interwebz - get ready for some awesome maps and real-time goodness!");
-    }
+    }*/ /*else {
+            alert("We can reach the Interwebz - get ready for some awesome maps and real-time goodness!");
+        }*/
   
    
-    var lsClient = new LightstreamerClient("http://push.lightstreamer.com","DEMO");
+    var lsClient = new LightstreamerClient("http://188.95.97.44","QUINTRICS");
     lsClient.addListener({
       onStatusChange: function(newStatus) {
         x$("#connection_status").html(newStatus);
@@ -19,7 +20,7 @@ run(function () {
     lsClient.connect();
 
     var grid = new DynaGrid("stocks",true);
-    grid.setSort("stock_name");
+    grid.setSort("name");
     grid.addListener({
       onVisualUpdate: function(key,info) {
         if (info == null) {
@@ -32,9 +33,10 @@ run(function () {
       }
     });
 
-    var sub = new Subscription("MERGE",["item3","item4","item5","item6","item7"],grid.extractFieldList()); 
+    var sub = new Subscription("MERGE",["MR30283","MR14300"],grid.extractFieldList()); 
     sub.addListener(grid);
-    sub.setDataAdapter("QUOTE_ADAPTER");
+    sub.setDataAdapter("MARKETDATA");
+
     sub.setRequestedSnapshot("yes");
 
     lsClient.subscribe(sub);
@@ -84,5 +86,5 @@ run(function () {
         display('#welcome');
     });
 
-alert("step 5");
+
 });
