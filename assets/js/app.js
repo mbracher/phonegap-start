@@ -8,39 +8,41 @@ run(function () {
         alert("No internet connection - we won't be able to show you any maps or stocks");
     } /*else {
             alert("We can reach the Interwebz - get ready for some awesome maps and real-time goodness!");
-        }*/
-  
-   
-    var lsClient = new LightstreamerClient("http://188.95.97.44","QUINTRICS");
-    lsClient.addListener({
-      onStatusChange: function(newStatus) {
-        x$("#connection_status").html(newStatus);
-      }
-    });
-    lsClient.connect();
-
-    var grid = new DynaGrid("stocks",true);
-    grid.setSort("name");
-    grid.addListener({
-      onVisualUpdate: function(key,info) {
-        if (info == null) {
-          return; //cleaning
         }
-        info.setHotTime(500);
-        info.setHotToColdTime(300);
-        info.setAttribute("#F7941E", "transparent", "backgroundColor");
-        info.setAttribute("white", "black", "color");
-      }
+*/
+  
+		require(["LightstreamerClient","Subscription", "DynaGrid"], 
+			function(LightstreamerClient, Subscription, DynaGrid) {
+    		var lsClient = new LightstreamerClient("http://188.95.97.44","QUINTRICS");
+    		lsClient.addListener({
+      		onStatusChange: function(newStatus) {
+        		x$("#connection_status").html(newStatus);
+      		}
+    		});
+		    lsClient.connect();
+
+		    var grid = new DynaGrid("stocks",true);
+		    grid.setSort("name");
+		    grid.addListener({
+		      onVisualUpdate: function(key,info) {
+		        if (info == null) {
+		          return; //cleaning
+		        }
+		        info.setHotTime(500);
+		        info.setHotToColdTime(300);
+		        info.setAttribute("#F7941E", "transparent", "backgroundColor");
+		        info.setAttribute("white", "black", "color");
+		      }
+		    });
+
+		    var sub = new Subscription("MERGE",["MR30283","MR14300"],grid.extractFieldList()); 
+		    sub.addListener(grid);
+		    sub.setDataAdapter("MARKETDATA");
+
+		    sub.setRequestedSnapshot("yes");
+
+		    lsClient.subscribe(sub);
     });
-
-    var sub = new Subscription("MERGE",["MR30283","MR14300"],grid.extractFieldList()); 
-    sub.addListener(grid);
-    sub.setDataAdapter("MARKETDATA");
-
-    sub.setRequestedSnapshot("yes");
-
-    lsClient.subscribe(sub);
-    
 
     // a little inline controller
     when('welcome');
